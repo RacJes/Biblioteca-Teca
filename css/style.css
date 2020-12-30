@@ -1,5 +1,15 @@
 /*
-    DEMO STYLE
+    Biblioteca - teca
+*/
+#login {
+    background-color: white;
+    position:relative;
+    left: 50%;
+        
+
+}
+/*
+    Bootstrap
 */
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 
