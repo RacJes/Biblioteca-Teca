@@ -2,7 +2,7 @@
 <html>
 
 <head>
-        <title>Collapsible sidebar using Bootstrap 4</title>
+        <title><?php echo "$nm_page"; ?></title>
 
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="css/bootstrap.css">

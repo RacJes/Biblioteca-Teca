@@ -1,6 +1,6 @@
-<?php require("header.php"); ?>
+<?php $nm_page ="Biblioteca-Teca"; 
+require("header.php"); ?>
 <body>
-
 <div class="wrapper">
 <?php require("sidebar.php"); ?>    
 
