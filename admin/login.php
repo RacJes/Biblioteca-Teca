@@ -26,12 +26,12 @@
                     <div class="card-body">
                         <form class="form" name="formLogin" action="#" method="POST">
                             <div class="form-group">
-                                <label for="uname1">Username</label>
+                                <label for="uname1">Usuario</label>
                                 <input type="text" class="form-control form-control-lg rounded-0" name="user" id="uname1" required="">
                                 <div class="invalid-feedback">por favor colocar l ogin</div>
                             </div>
                             <div class="form-group">
-                                <label>senha</label>
+                                <label>Senha</label>
                                 <input type="password" class="form-control form-control-lg rounded-0" name="senha">
                                 <div class="invalid-feedback">
                                 Coloque sua senha.
