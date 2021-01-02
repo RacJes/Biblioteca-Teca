@@ -5,8 +5,24 @@
     background-color: white;
     position:relative;
     left: 50%;
-        
+}
 
+article {
+    width: 80%;
+    margin: auto;
+    margin-top: 0px;
+  }
+  
+  .thumbnail {
+    height: 200px;
+    margin: 10px;
+  }
+
+  .table-overflow {
+    margin-top: 10px;
+    max-height:220px;
+    max-width: 400px;
+    overflow-x:auto;
 }
 /*
     Bootstrap
@@ -66,7 +82,10 @@ a, a:hover, a:focus {
     align-items: stretch;
     perspective: 1500px;
 }
-
+.icorrect {
+    padding: 3px; 
+    margin-right: 5px;
+}
 
 #sidebar {
     font-weight: bold;
