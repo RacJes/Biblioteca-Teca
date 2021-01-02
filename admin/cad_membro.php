@@ -6,7 +6,9 @@
 <div class="wrapper">
         <!-- Conteudo da pagina -->
 <div id="content">
-    <?php require("navbar.php"); ?>
+    <?php 
+    include("carrosel.php");
+    require("navbar.php"); ?>
     
 <div id="conteudo" class="container  w-75 justify-content-center">
 

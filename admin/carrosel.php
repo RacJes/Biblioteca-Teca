@@ -1,23 +1,23 @@
 
  <!-- Carrosel -->
  <center> 
-     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" style="margin-bottom:5px;">
         <div class="carousel-inner">
             <div class="carousel-item active">
                   
                     
-                     <img class="d-block w-25" src="images/teste.jpg" href="http://google.com" alt="First slide">
+                     <img class="d-block w-25" src="../images/teste.jpg" href="http://google.com" alt="First slide">
                     
                   
             </div>
             <div class="carousel-item">
                 <a hrfe="#">
-                <img class="d-block w-25" src="images/teste2.jpg" alt="Second slide">
+                <img class="d-block w-25" src="../images/teste2.jpg" alt="Second slide">
                 </a>
             </div>
             <div class="carousel-item">
                 <a hrfe="#">
-                <img class="d-block w-25" src="images/teste3.jpg" alt="Third slide">
+                <img class="d-block w-25" src="../images/teste3.jpg" alt="Third slide">
                 </a>
             </div>
         </div>

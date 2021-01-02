@@ -8,7 +8,9 @@
 
         <!-- Conteudo da pagina -->
     <div id="content">
-     <?php include("pesquisaEcarrosel.php");?>
+     <?php 
+     include("pesquisa.php");
+     include("carrosel.php");?>
 
         <h2>Utilmas noticias</h2>
        

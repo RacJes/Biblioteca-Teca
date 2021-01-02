@@ -15,12 +15,13 @@
                 <a class="dropdown-item" href="#">Cadastrar livros</a>
             </div>
         </li>
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <li class="nav-item dropdown active">
+            <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Alugados
             </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Listar todos alugueis</a>
+            <div class="dropdown-menu " aria-labelledby="navbarDropdown">
+                <a class="dropdown-item " href="#">Listar todos alugueis</a>
+                <a class="dropdown-item" href="cad_aluguel.php">Listar todos alugueis</a>
                 <a class="dropdown-item" href="#">Listar atrasados</a>
             </div>
         </li>
