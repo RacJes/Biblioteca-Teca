@@ -1,5 +1,5 @@
 <?php 
-    $nm_page ="Cadastrar Noticias";
+    $nm_page ="Cadastrar Noticia";
     require("header.php");
 ?>
 <body>

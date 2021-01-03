@@ -1,5 +1,5 @@
 <?php 
-    $nm_page ="Cadastrar Livros";
+    $nm_page ="Alugueis";
     require("header.php");
 ?>
 <body>
