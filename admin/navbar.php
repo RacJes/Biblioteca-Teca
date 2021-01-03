@@ -12,7 +12,7 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="#">Listar livros</a>
-                <a class="dropdown-item" href="#">Cadastrar livros</a>
+                <a class="dropdown-item" href="cad_livro.php">Cadastrar livros</a>
             </div>
         </li>
         <li class="nav-item dropdown active">
@@ -22,7 +22,7 @@
             <div class="dropdown-menu " aria-labelledby="navbarDropdown">
                 <a class="dropdown-item " href="#">Listar todos alugueis</a>
                 <a class="dropdown-item" href="cad_aluguel.php">Listar todos alugueis</a>
-                <a class="dropdown-item" href="#">Listar atrasados</a>
+                <a class="dropdown-item" href="cad_aluguel.php">Cadastrar aluguel</a>
             </div>
         </li>
         <li class="nav-item dropdown">
@@ -31,7 +31,7 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="#">Listar membros</a>
-                <a class="dropdown-item" href="#">Cadastrar membros</a>
+                <a class="dropdown-item" href="cad_membro.php">Cadastrar membros</a>
             </div>
         </li>
         <li class="nav-item dropdown">
@@ -40,7 +40,7 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="#">Listar noticias</a>
-                <a class="dropdown-item" href="#">Cadastrar noticias</a>
+                <a class="dropdown-item" href="cad_noticia.php">Cadastrar noticias</a>
             </div>
         </li>
      </ul>
