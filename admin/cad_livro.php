@@ -22,7 +22,7 @@
         O titulo e o autor são necessáriamente importantes por, sem eles o livro não será cadastrado.
         </div>
     </div>
-    <form class="form-group">
+    <form class="form-group border-dark border p-2 rounded">
     <div id="formulario" class="form-row" style="margin-top:2rem;">
             <div class="form-group col-md-4">
                 <b><label for=titulo>*Titulo do livro</label></b>
@@ -86,7 +86,7 @@
         </div>      
         <!-- https://stackoverflow.com/questions/20779983/multiple-image-upload-and-preview --> 
     </div>
-    <div class="row">
+    <div class="row w-100 " style="margin:auto;">
     <button type="button" class="btn btn-primary btn-lg btn-block">Enviar</button>
     </div>
     

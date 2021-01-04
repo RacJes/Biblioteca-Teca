@@ -22,7 +22,7 @@
         Após isso ele vai coletar a data atual e a data de entrega para calcular a devolução.
         </div>
     </div>
-    <form class="form-group">
+    <form class="form-group border border-dark rounded p-2">
     <div id="formulario" class="form-row" style="margin-top:2rem;">
             <div class="form-group col-md-4">
                 <b><label for=codLivro>*Codigo do livro</label></b>
@@ -38,10 +38,14 @@
             </div>
     </div>
    
-    
-    <div class="row">
-    <button type="button" class="btn btn-primary btn-lg btn-block">Enviar</button>
-    </div>
+    <div class="row justify-content-center w-100" style="margin-left:0.1%;" >    
+            <div class="col ">
+                <form action="#">
+                    <input type="submit" id="validar" class="btn btn-primary btn-lg btn-block"   value="Validar" />
+                </form>
+                <br/>
+            </div>
+        </div>
     
 </div>
 

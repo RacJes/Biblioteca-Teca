@@ -13,7 +13,7 @@
 <div id="conteudo" class="container justify-content-center " style="block-size: 15px; writing-mode: horizontal-tb;">
 
     <div id="titulo" class="row d-flex justify-content-center ">
-        <h2 class="text-center font-weight-bold"><ins>Livros Atrasados</ins></h2>
+        <h2 class="text-center font-weight-bold"><ins>Todos livros Alugados</ins></h2>
     </div>
 
      <!-- inicio do membro e livro -->      
@@ -26,7 +26,7 @@
         <div class="row p-2 m-1 " >
         
             <div id="livro" class="row m-1">
-                <div class="col ">
+                <div class="col">
                     <img class="d-block p-2" src="../images/teste.jpg" 
                     style="max-width:300px; max-height:160px;   margin-left: auto;  margin-right: auto;">
                 </div>
@@ -36,7 +36,7 @@
                     978-8501078803
                 </div>
             
-            <div id="membro" class="col">
+            <div id="membro"class="col">
                     <img class="d-block p-2" src="../images/teste.jpg" 
                     style="max-width:300px; max-height:160px;   margin-left: auto;  margin-right: auto;">
                 </div>
@@ -52,7 +52,7 @@
         <div class="row justify-content-center w-100" style="margin-left:0.1%;" >    
             <div class="col ">
                 <form action="#">
-                    <center><b><label for="validar" >Situação : <b class="bg-danger">Em Atraso</b></label></b></center>
+                    <center><b><label for="validar" >Situação: <b class="bg-info">No prazo</b></label></b></center>
                     <input type="submit" id="validar" class="btn btn-primary btn-lg btn-block"   value="Validar" />
                 </form>
                 <br/>

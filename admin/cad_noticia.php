@@ -23,7 +23,7 @@
         O titulo e a descrição são necessáriamente importantes por, sem eles a noticia não será postada.
         </div>
     </div>
-    <form class="form-group">
+    <form class="form-group border border-dark rounded p-2">
     <div id="formulario" class="form-row" style="margin-top:2rem;">
             <div class="form-group col-md-4">
                 <b><label for=titulo>*Titulo da Noticia</label></b>
@@ -87,9 +87,14 @@
         </div>      
         <!-- https://stackoverflow.com/questions/20779983/multiple-image-upload-and-preview --> 
     </div>
-    <div class="row">
-    <button type="button" class="btn btn-primary btn-lg btn-block">Enviar</button>
-    </div>
+    <div class="row justify-content-center w-100" style="margin-left:0.1%;" >    
+            <div class="col ">
+                <form action="#">
+                    <input type="submit" id="validar" class="btn btn-primary btn-lg btn-block"   value="Cadastrar" />
+                </form>
+                <br/>
+            </div>
+        </div>
     
 </div>
 
