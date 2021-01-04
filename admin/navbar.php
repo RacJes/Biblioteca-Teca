@@ -11,7 +11,7 @@
             Livros
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Listar livros</a>
+                <a class="dropdown-item" href="listar_livro.php">Listar livros</a>
                 <a class="dropdown-item" href="cad_livro.php">Cadastrar livros</a>
             </div>
         </li>
@@ -21,7 +21,7 @@
             </a>
             <div class="dropdown-menu " aria-labelledby="navbarDropdown">
                 <a class="dropdown-item " href="#">Listar todos alugueis</a>
-                <a class="dropdown-item" href="cad_aluguel.php">Listar todos alugueis</a>
+                <a class="dropdown-item" href="aluguel_atrasado.php">Listar Atrasados</a>
                 <a class="dropdown-item" href="cad_aluguel.php">Cadastrar aluguel</a>
             </div>
         </li>
