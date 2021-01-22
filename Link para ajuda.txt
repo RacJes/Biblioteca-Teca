@@ -1,0 +1,2 @@
+https://www.devmedia.com.br/introducao-ao-php-pdo/24973
+https://www.devmedia.com.br/usando-pdo-php-data-objects-para-aumentar-a-produtividade/28446
