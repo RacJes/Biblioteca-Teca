@@ -22,33 +22,33 @@
         Sem cadastro não é possivel alugar livros.
         </div>
     </div>
-    <form class="form-group border border-dark p-2 rounded">
+    <form class="form-group border border-dark p-2 rounded" method="post" action="valida_membro.php">
     <div id="formulario" class="form-row" style="margin-top:2rem;">
             <div class="form-group col-md-4">
                 <b><label for=nome>*Nome Completo</label></b>
-                <input type="text" class="form-control" id="nome"  placeholder="Nome Completo">
+                <input type="text" class="form-control"  name="nome"  placeholder="Nome Completo">
             </div>    
             <div class="form-group col-md-4">    
                 <b><label for=cpf>*Cpf</label></b>
-                <input type="number" class="form-control" id="cpf" placeholder="000.000.000-00">
+                <input type="number" class="form-control" name="cpf" placeholder="000.000.000-00">
             </div>
             <div class="form-group col-md-4">    
                 <b><label for=telefone>*Telefone</label></b>
-                <input type="number" class="form-control" id="telefone" placeholder="0+ddd+Telefone">
+                <input type="number" class="form-control" name="telefone" placeholder="0+ddd+Telefone">
             </div>
     </div>
     <div id="formulario" class="form-row" style="margin-top:2rem;">
             <div class="form-group col-md-4">
                 <b><label for=Endereco>*Endereço</label></b>
-                <input type="text" class="form-control" id="endereco"  placeholder="Cidade,Bairro,N°casa">
+                <input type="text" class="form-control" name="endereco"  placeholder="Cidade,Bairro,N°casa">
             </div>    
             <div class="form-group col-md-4">    
                 <b><label for=autor>Email</label></b>
-                <input type="email" class="form-control" id="email" placeholder="Contato@Bteca.com">
+                <input type="email" class="form-control" name="email" placeholder="Contato@Bteca.com">
             </div>
             <div class="form-group col-md-4">    
                 <b><label for=editor>Nasciento</label></b>
-                <input type="date" class="form-control" id="editor">
+                <input type="date" class="form-control" name="nascimento">
             </div>
     </div>
     <script>
@@ -92,14 +92,14 @@
             </div>    
         
             <label for='files'>Enviar as fotos </label>
-            <input id='files' type='file' >
+            <input name='files' type='file' >
         </div> 
         <!-- https://stackoverflow.com/questions/20779983/multiple-image-upload-and-preview --> 
     </div>
     <div class="row justify-content-center w-100" style="margin-left:0.1%;" >    
             <div class="col ">
-                <form action="#">
-                    <input type="submit" id="validar" class="btn btn-primary btn-lg btn-block"   value="Cadastrar" />
+               
+                    <input type="submit" id="validar" class="btn btn-primary btn-lg btn-block"   value="Cadastrar"  />
                 </form>
                 <br/>
             </div>
