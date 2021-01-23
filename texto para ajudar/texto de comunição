@@ -1,0 +1,18 @@
+Para usar o Banco e so um include ed conectar.php 
+
+
+Pelo lendo pela internet e assim que faz a sessão
+
+session_start();//Uma nova sessão de usuário é iniciada.
+ assim verficamos se ja esta aberta
+
+ if (session_status() !== PHP_SESSION_ACTIVE) {//Verificar se a sessão não já está aberta.
+  session_start();
+}
+pegando valor dad sessão 
+//Acessando valores dentro de uma sessão:
+echo $_SESSION['nome_usuario'];
+echo $_SESSION['nome_login'];
+
+assim fecha a sessão
+  unset($_SESSION['nome_usuario']);

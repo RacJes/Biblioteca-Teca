@@ -8,63 +8,75 @@ class BancoBi
         $this->pdo = $pdo;
         $this->pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
     }
+
     //Insert 
-    function insert()
+    function insert($tabela,$valor)
     {
         try {
-        
-        $stmt = $this->pdo->prepare('INSERT INTO minhaTabela (nome) VALUES(:nome)');
-        $stmt->execute(array(
-            ':nome' => 'Ricardo Arrigoni'
-        ));
-        echo $stmt->rowCount();
+        //INSERT INTO minhaTabela (nome) VALUES(:nome)'
+        $inseri = $this->pdo->prepare('INSERT INTO '.$tabela.' VALUES '.$valor.'');
+        $inseri->execute();
+        echo $inseri->rowCount();
         } catch(PDOException $e) {
         echo 'Error Insert Do Banco: ' . $e->getMessage();
         }
     }
 
     //Update
-    function Update()
+    function Update($tabela,$campo,$valor,$condicao)
     {
         
-        $id = 5;
-        $nome = "Novo nome do Ricardo";
-
         try {
-        $stmt = $this->pdo->prepare('UPDATE minhaTabela SET nome = :nome WHERE id = :id');
-        $stmt->execute(array(
-            ':id'   => $id,
-            ':nome' => $nome
-        ));
+            //'UPDATE minhaTabela SET nome = :nome WHERE id = :id'
+        $update = $this->pdo->prepare('UPDATE '.$tabela.' SET '.$campo.' = '.$valor.' WHERE '.$condicao.'');
+        $update->execute();
 
-        echo $stmt->rowCount();
+        return $update;
+
+        echo $update->rowCount();
         } catch(PDOException $e) {
         echo 'Error No Update do Banco: ' . $e->getMessage();
         }
     }
+
     //Select
-    function Select(){
+    function Select($tabela,$campo){
+        //"SELECT nome, usuario FROM login WHERE id= :id;"
+        $consulta = $this->pdo->prepare("SELECT '.$tabela.' FROM '.$campo.';");
+        $consulta->execute();
 
-        $consulta = $this->pdo->query("SELECT nome, usuario FROM login;");
+        $rows = $consulta->fetchAll(PDO::FETCH_ASSOC);
+        return $rows;
+    }  
+    function SelectCondi($tabela,$campo,$condicao){
+        //"SELECT nome, usuario FROM login WHERE id= :id;"
+        $consulta = $this->pdo->prepare("SELECT '.$tabela.' FROM '.$campo.' WHERE '.$condicao.';");
+        $consulta->execute();
 
-        while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {
-            echo "Nome: {$linha['nome']} - Usuário: {$linha['usuario']}<br />";
-        }
+        $rows = $consulta->fetchAll(PDO::FETCH_ASSOC);
+        return $rows;
     }
+    
     //Delete
-    function Delete()
+    function Delete($tabela,$condicao)
     {
-        $id = 5;
+        //'DELETE FROM minhaTabela WHERE id = :id'
         try {
 
-            $stmt = $this->pdo->prepare('DELETE FROM minhaTabela WHERE id = :id');
-            $stmt->bindParam(':id', $id);
-            $stmt->execute();
+            $del = $this->pdo->prepare('DELETE FROM '.$tabela.' WHERE '.$condicao.'');
+            $del ->execute();
         
-            echo $stmt->rowCount();
+            echo $del ->rowCount();
+            return $del;
+
         } catch(PDOException $e) {
             echo 'Error no Delete do Banco: ' . $e->getMessage();
         }
+    }
+
+    public function UtimoIdInserido($param = null)
+    {
+        return $this->pdo->lastInsertId($param);
     }
 
 }

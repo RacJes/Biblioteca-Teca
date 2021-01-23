@@ -1,0 +1,10 @@
+https://www.devmedia.com.br/introducao-ao-php-pdo/24973
+https://www.devmedia.com.br/usando-pdo-php-data-objects-para-aumentar-a-produtividade/28446
+https://www.devmedia.com.br/crud-com-php-pdo/28873
+
+https://www.youtube.com/results?search_query=pdo+php+mysql
+
+https://medium.com/weyes/trabalhando-e-manipulando-sess%C3%A3o-no-php-ece2d9bf9e31
+
+https://www.php.net/manual/pt_BR/pdostatement.fetchall.php
+https://www.php.net/manual/pt_BR/pdo.lastinsertid.php
