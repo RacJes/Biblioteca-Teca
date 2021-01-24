@@ -10,4 +10,4 @@ Fornecer ao menos 3 opções de alteração de dados cadastrados. Exemplo: alter
 
 Fornecer ao menos 3 opções de exclusão de dados cadastrados: apagar todos os dados de um cabeleireiro, apagar dados de um aluno, apagar uma compra, etc.
 
-A aplicação deverá fazer uso de formulários, modals e sessões de usuários.
+A aplicação deverá fazer uso de formulários(V), modals e sessões de usuários.

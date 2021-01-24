@@ -15,19 +15,38 @@ class BancoBi{
     {
         return $this->pdo->lastInsertId($param);
     }
- 
-    public function Select($tableName, $fields='*', $cond='', $orderBy='', $limit='')
+
+    //essa função serve para poder ver qual utimo id do tabla para poder colocaro valor do proximo no include
+    public function numeroLinhas($tableName, $field, $cond='')
     {
-        //echo "SELECT  $tableName.$fields FROM $tableName WHERE 1 ".$cond." ".$orderBy." ".$limit;
-        $sel = $this->pdo->prepare("SELECT $fields FROM $tableName WHERE ".$cond." ".$orderBy." ".$limit);
-        $sel->execute();
-        $rows = $sel->fetchAll(PDO::FETCH_ASSOC);
-
-        return $rows;
+        $stmt = $this->pdo->prepare("SELECT count($field) as total FROM $tableName WHERE 1 ".$cond);
+        try {
+            $stmt->execute();
+            $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
+           
+            if (! $res || count($res) != 1) {
+               return $res;
+            }
+            return $res;
+        } catch (\PDOException $e) {
+            throw new \RuntimeException("[".$e->getCode()."] : ". $e->getMessage());
+        }
     }
-     
+    
+    public function InsertCrud($tableName, array $data)
+    {
+        $ins = $this->pdo->prepare("INSERT INTO $tableName (".implode(',', array_keys($data)).")
+            VALUES (".implode(',', array_fill(0, count($data), '?')).")"
+        );
+        try{
+            $ins->execute(array_values($data));
+            return $ins->rowCount();
+        } catch (\PDOException $e) {
+            throw new \RuntimeException("[".$e->getCode()."] : ". $e->getMessage());
+        }
+    }
 
-    public function update($tableName, array $set, array $where)
+    public function UpdateCrud($tableName, array $set, array $where)
     {
         
         $arrSet = array_map(
@@ -53,8 +72,19 @@ class BancoBi{
             throw new \RuntimeException("[".$e->getCode()."] : ". $e->getMessage());
         }
     }
+
+    public function SelectCrud($tableName, $fields='*', $cond='', $orderBy='', $limit='')
+    {
+        //echo "SELECT  $tableName.$fields FROM $tableName WHERE 1 ".$cond." ".$orderBy." ".$limit;
+        $sel = $this->pdo->prepare("SELECT $fields FROM $tableName WHERE ".$cond." ".$orderBy." ".$limit);
+        $sel->execute();
+        $rows = $sel->fetchAll(PDO::FETCH_ASSOC);
+
+        return $rows;
+    }
+     
  
-    public function delete($tableName, array $where)
+    public function DeleteCrud($tableName, array $where)
     {
         $del = $this->pdo->prepare("DELETE FROM $tableName WHERE ".key($where) . ' = ?');
         try {
@@ -66,18 +96,7 @@ class BancoBi{
         }
     }
  
-    public function insert($tableName, array $data)
-    {
-        $ins = $this->pdo->prepare("INSERT INTO $tableName (".implode(',', array_keys($data)).")
-            VALUES (".implode(',', array_fill(0, count($data), '?')).")"
-        );
-        try{
-            $ins->execute(array_values($data));
-            return $ins->rowCount();
-        } catch (\PDOException $e) {
-            throw new \RuntimeException("[".$e->getCode()."] : ". $e->getMessage());
-        }
-    }
+
       
 }
 ?>
