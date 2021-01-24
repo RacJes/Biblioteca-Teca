@@ -1,6 +1,9 @@
 <?php
+ //
  //Professor Não sabe que minha ideia de montar o Banco com function esta dando trabalho
  //Estou pesquisando Muito para saber como montar certo e bom para tudo sem precisar fazer sobrecarga
+ //Isso Foi Feito pelo metodo PDO 
+ //
 class BancoBi{
 
     protected $pdo;
@@ -32,7 +35,9 @@ class BancoBi{
             throw new \RuntimeException("[".$e->getCode()."] : ". $e->getMessage());
         }
     }
-    
+
+    // Insert
+
     public function InsertCrud($tableName, array $data)
     {
         $ins = $this->pdo->prepare("INSERT INTO $tableName (".implode(',', array_keys($data)).")
@@ -45,6 +50,8 @@ class BancoBi{
             throw new \RuntimeException("[".$e->getCode()."] : ". $e->getMessage());
         }
     }
+
+//Update
 
     public function UpdateCrud($tableName, array $set, array $where)
     {
@@ -73,6 +80,8 @@ class BancoBi{
         }
     }
 
+// Select
+
     public function SelectCrud($tableName, $fields='*', $cond='', $orderBy='', $limit='')
     {
         //echo "SELECT  $tableName.$fields FROM $tableName WHERE 1 ".$cond." ".$orderBy." ".$limit;
@@ -82,8 +91,20 @@ class BancoBi{
 
         return $rows;
     }
+
+    public function SelectAllCrud($tableName, $fields='*')
+    {
+
+        //echo "SELECT  $tableName.$fields FROM $tableName;
+        $sel = $this->pdo->prepare("SELECT $fields FROM $tableName");
+        $sel->execute();
+        $rows = $sel->fetchAll(PDO::FETCH_ASSOC);
+
+        return $rows;
+    }
      
- 
+ // Delete
+
     public function DeleteCrud($tableName, array $where)
     {
         $del = $this->pdo->prepare("DELETE FROM $tableName WHERE ".key($where) . ' = ?');
