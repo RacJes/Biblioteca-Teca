@@ -22,19 +22,19 @@
         Após isso ele vai coletar a data atual e a data de entrega para calcular a devolução.
         </div>
     </div>
-    <form class="form-group border border-dark rounded p-2">
+    <form class="form-group border border-dark rounded p-2" method="post" action="valida_aluguel.php">
     <div id="formulario" class="form-row" style="margin-top:2rem;">
             <div class="form-group col-md-4">
                 <b><label for=codLivro>*Codigo do livro</label></b>
-                <input type="number" class="form-control" id="codLivro"  placeholder="0000">
+                <input type="number" class="form-control" name="codLivro"  placeholder="0000">
             </div>    
             <div class="form-group col-md-4">    
                 <b><label for=autor>*CPF do Membro</label></b>
-                <input type="number" class="form-control" id="cpf" placeholder="000.000.000-00">
+                <input type="number" class="form-control" name="cpf" placeholder="000.000.000-00">
             </div>
             <div class="form-group col-md-4">    
-                <b><label for=editor>Data da devolução</label></b>
-                <input type="date" class="form-control" id="editor" placeholder="Editora">
+                <b><label for=date>Data da devolução</label></b>
+                <input type="date" class="form-control" name="date" placeholder="Editora">
             </div>
     </div>
    

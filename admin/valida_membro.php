@@ -9,10 +9,3 @@
 
 ?>
 
-<?php 
-insert('Membro',$data){
-    $data= array(
-
-    );
-    
-}

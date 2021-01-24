@@ -23,20 +23,20 @@
         </div>
     </div>
     <form class="form-group border border-dark p-2 rounded" method="post" action="valida_membro.php">
-    <div id="formulario" class="form-row" style="margin-top:2rem;">
-            <div class="form-group col-md-4">
-                <b><label for=nome>*Nome Completo</label></b>
-                <input type="text" class="form-control"  name="nome"  placeholder="Nome Completo">
-            </div>    
-            <div class="form-group col-md-4">    
-                <b><label for=cpf>*Cpf</label></b>
-                <input type="number" class="form-control" name="cpf" placeholder="000.000.000-00">
-            </div>
-            <div class="form-group col-md-4">    
-                <b><label for=telefone>*Telefone</label></b>
-                <input type="number" class="form-control" name="telefone" placeholder="0+ddd+Telefone">
-            </div>
-    </div>
+        <div id="formulario" class="form-row" style="margin-top:2rem;">
+                <div class="form-group col-md-4">
+                    <b><label for=nome>*Nome Completo</label></b>
+                    <input type="text" class="form-control"  name="nome"  placeholder="Nome Completo">
+                </div>    
+                <div class="form-group col-md-4">    
+                    <b><label for=cpf>*Cpf</label></b>
+                    <input type="number" class="form-control" name="cpf" placeholder="000.000.000-00">
+                </div>
+                <div class="form-group col-md-4">    
+                    <b><label for=telefone>*Telefone</label></b>
+                    <input type="number" class="form-control" name="telefone" placeholder="0+ddd+Telefone">
+                </div>
+        </div>
     <div id="formulario" class="form-row" style="margin-top:2rem;">
             <div class="form-group col-md-4">
                 <b><label for=Endereco>*Endereço</label></b>
@@ -47,7 +47,7 @@
                 <input type="email" class="form-control" name="email" placeholder="Contato@Bteca.com">
             </div>
             <div class="form-group col-md-4">    
-                <b><label for=editor>Nasciento</label></b>
+                <b><label for=editor>Nascimento</label></b>
                 <input type="date" class="form-control" name="nascimento">
             </div>
     </div>
@@ -96,16 +96,14 @@
         </div> 
         <!-- https://stackoverflow.com/questions/20779983/multiple-image-upload-and-preview --> 
     </div>
-    <div class="row justify-content-center w-100" style="margin-left:0.1%;" >    
+        <div class="row justify-content-center w-100" style="margin-left:0.1%;" >    
             <div class="col ">
-               
-                    <input type="submit" id="validar" class="btn btn-primary btn-lg btn-block"   value="Cadastrar"  />
-                </form>
-                <br/>
+                    <button type="submit" action="11.php" name="files" class="btn btn-primary btn-lg btn-block">Enviar</button>
             </div>
         </div>
-    
-</div><!-- div conteudo-->
-
-</div><!-- div content-->
-</div><!-- div wrapper-->
+          
+                    
+    </form>
+</div><!-- div Conteudo-->
+</div><!-- div Content-->
+</div><!-- div Wrapper-->

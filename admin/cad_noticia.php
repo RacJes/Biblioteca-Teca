@@ -23,19 +23,19 @@
         O titulo e a descrição são necessáriamente importantes por, sem eles a noticia não será postada.
         </div>
     </div>
-    <form class="form-group border border-dark rounded p-2">
+    <form class="form-group border border-dark rounded p-2" method="POST" action="valida_noticia.php">
     <div id="formulario" class="form-row" style="margin-top:2rem;">
             <div class="form-group col-md-4">
                 <b><label for=titulo>*Titulo da Noticia</label></b>
-                <input type="text" class="form-control" id="titulo"  placeholder="Titulo">
+                <input type="text" class="form-control" name="titulo"  placeholder="Titulo">
             </div>    
             <div class="form-group col-md-4">    
                 <b><label for=autor>Autor</label></b>
-                <input type="text" class="form-control" id="autor" placeholder="Autor">
+                <input type="text" class="form-control" name="autor" placeholder="Autor">
             </div>
             <div class="form-group col-md-4">    
                 <b><label for=date>Data da noticia</label></b>
-                <input type="date" class="form-control" id="date">
+                <input type="date" class="form-control" name="date">
             </div>
     </div>
     <script>
@@ -79,17 +79,17 @@
             </div>    
         
             <label for='files'>Enviar as fotos </label>
-            <input id='files' type='file'  multiple/>
+            <input name='files' type='file'  multiple/>
         </div>
         <div class="form-group col-md-6">
             <b><label for="corpoNoticia">*Texto da noticia</label></b>
-            <textarea class="form-control" id="corpoNoticia" rows="7"></textarea>
+            <textarea class="form-control" name="noticia" rows="7"></textarea>
         </div>      
         <!-- https://stackoverflow.com/questions/20779983/multiple-image-upload-and-preview --> 
     </div>
     <div class="row justify-content-center w-100" style="margin-left:0.1%;" >    
             <div class="col ">
-                <form action="#">
+               
                     <input type="submit" id="validar" class="btn btn-primary btn-lg btn-block"   value="Cadastrar" />
                 </form>
                 <br/>
