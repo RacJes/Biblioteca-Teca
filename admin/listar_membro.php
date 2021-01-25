@@ -23,6 +23,13 @@
          
 $tabe="membro";
 
+if(isset($_REQUEST['submit exl']) and $_REQUEST['submit exl']!=""){
+    extract($_REQUEST);
+    $id=$_REQUEST['idEx'];
+    $drop=$db->DeleteCrud("membro",$id);
+  
+}
+
 $imprime3= $db->SelectAllCrud("$tabe","*");
 
 if(count($imprime3)>0){
@@ -30,13 +37,15 @@ if(count($imprime3)>0){
     foreach($imprime3 as $val){
      $s++;
      //idmembro	nome	data_nacimento	cpf	endereco	telefone	email	imagem_idImagem	login_idLogin 	
+
+     $imprime4=$db->SelectCRUD("imagem","imagem","AND idImagem LIKE $val[imagem_idImagem]")
 ?>
    
    <div id="item" class="row border border-dark rounded">
         <div id="membro" class="row p-2 m-1">
             <div class="row m-1">
                 <div class="col col-lg-4 m-1 ">
-                    <img class="d-block p-2" src="../images/teste.jpg" 
+                    <img class="d-block p-2" src="$imprime4 image/gif" 
                     style="max-width:250px; max-height:150px;   margin-left: auto;  margin-right: auto;">
                 </div>
                 <div class="col">
@@ -53,22 +62,19 @@ if(count($imprime3)>0){
                         <div class="col"><b>Email : </b> <?php echo"$val[email]"?></div>
                     </div>
                 </div>
-            <div class=" " style=" margin-bottom:auto; margin-top:auto;" >
-            <center>
-                
-               
-                <form action="editar_membro.php" method="post">
-                <input type="hidden" name="id" value=" <?php echo"$val[idmembro]";?>"/>
-                <input type="submit" class="btn btn-warning" value="Editar" />
-                </form>
-                <br>
-                <form action="editar_membro.php" method="post">
-                <input type="hidden" name="id" value=" <?php echo"$val[idmembro]";?>"/>
-                <input type="submit" class="btn btn-danger" value="Excluir" />
-                </form>
-            </center>
-            </div>
-                      
+                <div class="d-flex flex-column" style="margin-top:0.5%; margin-bottom:0.5%; margin-right:1%;" >    
+        <center>   
+             <form action="editar_livro.php" method="post">
+                <input type="hidden" name="id" value=" <?php echo"$val[idlivro]";?>"/>
+                <input type="submit" name="edit" class="btn btn-warning"value="Editar livro" />
+            </form>
+            <br/>
+            <form action="#">
+                <input type="hidden" name="idEx" value=" <?php echo"$val[idlivro]";?>" id="exl"/>
+                <input type="submit exl" name="exl" class="btn btn-danger" value="Excluir Livro" />
+            </form>
+        </center>    
+        </div>          
         </div><!-- fecha membro e livro -->                        
         <!-- fecha botao -->
     </div>

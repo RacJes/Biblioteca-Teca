@@ -1,3 +1,43 @@
+<?php
+    include("../conectar.php");
+?>
+<?php
+    $mensagemModal='';
+    $TituloModal='';
+
+if(isset($_REQUEST['submit']) and $_REQUEST['submit']!=""){
+    extract($_REQUEST);
+
+    $cpf=$_REQUEST['cpf'];
+    $codLivro=$_REQUEST['codLivro'];
+    $cond1='AND cpf LIKE"'.$cpf.'"';
+    $cond2='AND livro_idlivro LIKE"'.$codLivro.'"';
+    $idmembro=$db->SelectCRUD('membro','idmembro',$cond1,'');
+    $estoque=$db->SelectCRUD('estoque','idEstoque',$cond2,'');
+
+    //$idmembro=$idmembroS['idmembro'];
+    //$estoque=$estoqueS['idEstoque'];
+
+    $data_Inc=date('Y/m/d');;
+    $data_Fin=date('Y/m/d', strtotime('+15 days'));;
+
+    $userCount	=	$db->numeroLinhas('emprestimo','idemprestimo');
+    $dataMem	=	array(
+                    'data_incial'=>$data_Inc,
+                    'data_enterga'=>$data_Fin,
+                    'status'=>1,
+                    'estoque_idEstoque'=>$estoque,
+                    'membro_idmembro'=>$idmembro,
+    );
+    
+    $mebroIn =$db->InsertCrud('emprestimo',$dataMem);  
+
+}else{
+    $TituloModal='ERRO';
+    $mensagemModal='Erro No Cadastro';
+
+}       
+?>
 <?php 
     $nm_page ="Alugueis";
     require("header.php");
@@ -22,7 +62,7 @@
         Após isso ele vai coletar a data atual e a data de entrega para calcular a devolução.
         </div>
     </div>
-    <form class="form-group border border-dark rounded p-2" method="post" action="valida_aluguel.php">
+    <form class="form-group border border-dark rounded p-2" method="POST">
     <div id="formulario" class="form-row" style="margin-top:2rem;">
             <div class="form-group col-md-4">
                 <b><label for=codLivro>*Codigo do livro</label></b>
@@ -30,18 +70,14 @@
             </div>    
             <div class="form-group col-md-4">    
                 <b><label for=autor>*CPF do Membro</label></b>
-                <input type="number" class="form-control" name="cpf" placeholder="000.000.000-00">
-            </div>
-            <div class="form-group col-md-4">    
-                <b><label for=date>Data da devolução</label></b>
-                <input type="date" class="form-control" name="date" placeholder="Editora">
+                <input type="text" class="form-control" name="cpf" placeholder="000.000.000-00">
             </div>
     </div>
    
     <div class="row justify-content-center w-100" style="margin-left:0.1%;" >    
             <div class="col ">
                 <form action="#">
-                    <input type="submit" id="validar" class="btn btn-primary btn-lg btn-block"   value="Validar" />
+                    <button type="button submit" name="submit" value="submit" id="submit" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#exampleModal">Validar</button>
                 </form>
                 <br/>
             </div>

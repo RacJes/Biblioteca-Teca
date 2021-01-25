@@ -2,6 +2,8 @@
     include("../conectar.php");
 ?>
 <?php
+    $mensagemModal='';
+    $TituloModal='';
 
 if(isset($_REQUEST['submit']) and $_REQUEST['submit']!=""){
     extract($_REQUEST);
@@ -37,51 +39,66 @@ if(isset($_REQUEST['submit']) and $_REQUEST['submit']!=""){
                 //mysql_query("INSERT INTO PESSOA (PES_IMG) VALUES ('$mysqlImg')") or
                 $idimagem=$db->UtimoIDinserido();
                 unlink($nomeFinal);
+
+
+                $userCount	=	$db->numeroLinhas('livro','idlivro');
+                $dataLiv	=	array(
+                                'titulo'=>$titulo,
+                                'autor'=>$autor,
+                                'editora'=>$editora,
+                                'isbn'=>$isbn,
+                                'sinopse'=>$sinopse,
+                                'imagem_idImagem'=>$idimagem,
     
+                );
+            
+                $LivIn =$db->InsertCrud('livro',$dataLiv);  
+                $idLivro=$db->UtimoIDinserido();
+    
+                $userCount	=	$db->numeroLinhas('estoque','idEstoque');
+                $dataEst	=	array(
+                                'quantidade'=>$estoque,
+                                'livro_idlivro'=>$idLivro,
+    
+                );
+                $EstIn =$db->InsertCrud('estoque',$dataEst);
+                if($EstIn>0)
+                {
+                    $mensagemModal='Sucesso';
+                    $TituloModal='Deu Certo Sucesso';
+                }
+
+ 
+                
             }
         }
         else {
-            echo"Você não realizou o upload de forma satisfatória.";
+               echo"Você não realizou o upload de forma satisfatória.";
         }
-    }  
-    
-    $userCount	=	$db->numeroLinhas('livro','idlivro');
-    $dataLiv	=	array(
-                    'titulo'=>$titulo,
-                    'autor'=>$autor,
-                    'editora'=>$editora,
-                    'isbn'=>$isbn,
-                    'sinopse'=>$sinopse,
-                    'imagem_idImagem'=>$idimagem,
+    }
 
-    );
-    
-    $LivIn =$db->InsertCrud('livro',$dataLiv);  
-    $idLivro=$db->UtimoIDinserido();
 
-    $userCount	=	$db->numeroLinhas('estoque','idEstoque');
-    $dataEst	=	array(
-                    'quantidade'=>$estoque,
-                    'livro_idlivro'=>$idLivro,
+}else{
+    $TituloModal='ERRO';
+    $mensagemModal='Erro No Cadastro';
 
-    );
-    $EstIn =$db->InsertCrud('estoque',$dataEst);
-
-}      
+}       
 ?>
 <?php
     $nm_page ="Cadastrar Livros";
     require("header.php");
 ?>
+
 <body>
 <div class="wrapper">
         <!-- Conteudo da pagina -->
 <div id="content">
 <?php 
     include("carrosel.php");
-    require("navbar.php"); ?>
-    
-    <div id="conteudo" class="container  w-75 justify-content-center">
+    require("navbar.php"); 
+?>
+
+<div id="conteudo" class="container  w-75 justify-content-center">
 
 <div id="titulo" class="row d-flex justify-content-center">
     <h2 class="text-center font-weight-bold"><ins> Cadastrar Livro</ins></h2>
@@ -132,10 +149,30 @@ if(isset($_REQUEST['submit']) and $_REQUEST['submit']!=""){
     <!-- https://stackoverflow.com/questions/20779983/multiple-image-upload-and-preview --> 
 </div>
 <div class="row w-100 " style="margin:auto;">
-<button type="sumit" name="submit" value="submit" id="submit" class="btn btn-primary btn-lg btn-block">Enviar</button>
+<!--<button type="sumit" name="submit" value="submit" id="submit" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Enviar</button>-->
+<button type="button submit" name="submit" value="submit" id="submit" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#exampleModal">Enviar</button>
 </div>
 </form>
-</div>
 
+</div>
 </div><!-- div content-->
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"><?php echo "$TituloModal";?></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <?php echo "$mensagemModal";?>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 </div><!-- div wrapper-->
