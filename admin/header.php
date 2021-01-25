@@ -33,3 +33,5 @@
                     });
                 });
             </script>
+
+<body style="background-color:#DBD886;">

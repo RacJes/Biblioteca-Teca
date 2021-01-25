@@ -2,7 +2,7 @@
     $nm_page ="Editar Membro";
     require("header.php");
 ?>
-<body>
+
 <div class="wrapper">
         <!-- Conteudo da pagina -->
 <div id="content">

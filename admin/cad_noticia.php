@@ -60,7 +60,7 @@ if(isset($_REQUEST['submit']) and $_REQUEST['submit']!=""){
     $nm_page ="Cadastrar Noticia";
     require("header.php");
 ?>
-<body>
+
 <div class="wrapper">
         <!-- Conteudo da pagina -->
 <div id="content">

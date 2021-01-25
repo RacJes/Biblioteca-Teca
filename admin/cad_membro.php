@@ -1,8 +1,9 @@
 <?php
     include("../conectar.php");
 ?>
+asd
 <?php
-
+echo $_POST["id"];
 if(isset($_REQUEST['submit']) and $_REQUEST['submit']!=""){
     extract($_REQUEST);
 // aqui vai se tudo tiver preenchido
@@ -80,7 +81,7 @@ if(isset($_REQUEST['submit']) and $_REQUEST['submit']!=""){
     $nm_page ="Cadastrar Membro";
     require("header.php");
 ?>
-<body>
+
 <div class="wrapper">
         <!-- Conteudo da pagina -->
 <div id="content">

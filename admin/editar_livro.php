@@ -2,7 +2,7 @@
     $nm_page ="Editar Livros";
     require("header.php");
 ?>
-<body>
+
 <div class="wrapper">
         <!-- Conteudo da pagina -->
 <div id="content">
@@ -10,7 +10,7 @@
     include("carrosel.php");
     require("navbar.php");
     include("../conectar.php");
-
+    
     $condition =    ' AND idlivro = "'.$_POST["id"].'" ';
     $imprime4  =    $db->SelectCRUD('livro','*',$condition,'');
     if(count($imprime4)>0){

@@ -2,7 +2,7 @@
     $nm_page ="Livros";
     require("header.php");
 ?>
-<body>
+
 <div class="wrapper">
         <!-- Conteudo da pagina -->
 <div id="content">
@@ -73,7 +73,7 @@ if(count($imprime3)>0){
         <div class="d-flex flex-column" style="margin-top:0.5%; margin-bottom:0.5%; margin-right:1%;" >    
         <center>   
              <form action="editar_livro.php" method="post">
-                <input type="hidden" name="id" value=" <?php echo"$val[idlivro]";?>"/>
+                <input type="hidden" name="id" value=" <?php echo"$val[idlivro]"?>;?>"/>
                 <input type="submit" class="btn btn-warning"value="Editar livro" />
             </form>
             <br/>

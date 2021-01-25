@@ -2,7 +2,7 @@
     $nm_page ="Listar Noticias";
     require("header.php");
 ?>
-<body>
+
 <div class="wrapper">
         <!-- Conteudo da pagina -->
 <div id="content">
