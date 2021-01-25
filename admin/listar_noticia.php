@@ -22,6 +22,15 @@
          
 $tabe="noticias";
 
+if($_SERVER["REQUEST_METHOD"]=="POST")
+{
+    $table=$_REQUEST['dropTab'];
+    $id=array(
+        'idNoticias'=>$_REQUEST['dropID'],
+    );
+    $drop=$db->DeleteCrud($table,$id);
+}
+
 $imprime3= $db->SelectAllCrud("$tabe","*");
 
 if(count($imprime3)>0){
@@ -72,8 +81,10 @@ if(count($imprime3)>0){
             </form>
             <br/>
             
-            <form action="#">
-                <input type="submit" class="btn btn-danger" value="Excluir Noticia" />
+            <form  method="POST">
+                <input type="hidden" name="dropTab" value="noticias" id="exl"/>
+                <input type="hidden" name="dropID" value="<?php echo"$val[idNoticias]";?>" id="exl"/>
+                <input type="submit" name="submit" value="Excluir" id="submit"  class="btn btn-danger"/>
             </form>
         </center>    
         </div>       
