@@ -1,13 +1,13 @@
 <?php 
 
     session_start();
-    /*
-    if($_Session['biblioteca']){
-        header("location: listar_noticia.php");
-    }
-    else{
+        
+    if( !empty($_SESSION['biblioteca']) ){
+
+    }else{
         header("location: login.php");
-    }*/
+    }
+
     $nm_page ="Alugueis";
     require("header.php");
 ?>

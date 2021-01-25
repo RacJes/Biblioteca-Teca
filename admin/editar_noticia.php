@@ -1,11 +1,13 @@
 <?php
-    session_start(); 
-/*
+
+    session_start();
+    
     if( !empty($_SESSION['biblioteca']) ){
 
     }else{
-        header("location: login.php");///echo 'sem login';
-    }*/
+        header("location: login.php");
+    }
+    
 
     $nm_page ="Cadastrar Noticia";
     require("header.php");
