@@ -10,8 +10,8 @@ if(isset($_REQUEST['submit']) and $_REQUEST['submit']!=""){
 
     $cpf=$_REQUEST['cpf'];
     $codLivro=$_REQUEST['codLivro'];
-    $cond1='AND cpf LIKE"'.$cpf.'"';
-    $cond2='AND livro_idlivro LIKE"'.$codLivro.'"';
+    $cond1='AND cpf ="'.$cpf.'"';
+    $cond2='AND livro_idlivro ="'.$codLivro.'"';
     $idmembro=$db->SelectCRUD('membro','idmembro',$cond1,'');
     $estoque=$db->SelectCRUD('estoque','idEstoque',$cond2,'');
 

@@ -22,12 +22,13 @@
 <?php
          
 $tabe="membro";
-
-if(isset($_REQUEST['submit exl']) and $_REQUEST['submit exl']!=""){
-    extract($_REQUEST);
-    $id=$_REQUEST['idEx'];
-    $drop=$db->DeleteCrud("membro",$id);
-  
+if($_SERVER["REQUEST_METHOD"]=="POST")
+{
+    $table=$_REQUEST['dropTab'];
+    $id=array(
+        'idmembro'=>$_REQUEST['dropID'],
+    );
+    $drop=$db->DeleteCrud($table,$id);
 }
 
 $imprime3= $db->SelectAllCrud("$tabe","*");
@@ -37,8 +38,8 @@ if(count($imprime3)>0){
     foreach($imprime3 as $val){
      $s++;
      //idmembro	nome	data_nacimento	cpf	endereco	telefone	email	imagem_idImagem	login_idLogin 	
-
-     $imprime4=$db->SelectCRUD("imagem","imagem","AND idImagem LIKE $val[imagem_idImagem]")
+     $imprime4=$db->SelectCRUD("imagem","imagem","AND idImagem = $val[imagem_idImagem]");
+     
 ?>
    
    <div id="item" class="row border border-dark rounded">
@@ -69,9 +70,10 @@ if(count($imprime3)>0){
                 <input type="submit" name="edit" class="btn btn-warning"value="Editar livro" />
             </form>
             <br/>
-            <form action="#">
-                <input type="hidden" name="idEx" value=" <?php echo"$val[idlivro]";?>" id="exl"/>
-                <input type="submit exl" name="exl" class="btn btn-danger" value="Excluir Livro" />
+            <form  method="POST">
+                <input type="hidden" name="dropTab" value="membro" id="exl"/>
+                <input type="hidden" name="dropID" value="<?php echo"$val[idmembro]";?>" id="exl"/>
+                <input type="submit" name="submit" value="Excluir" id="submit"  class="btn btn-danger"/>
             </form>
         </center>    
         </div>          
