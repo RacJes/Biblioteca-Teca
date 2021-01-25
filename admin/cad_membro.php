@@ -6,8 +6,6 @@
 if(isset($_REQUEST['submit']) and $_REQUEST['submit']!=""){
     extract($_REQUEST);
 // aqui vai se tudo tiver preenchido
-
-$tabe="membro";
     $nome=$_REQUEST['nome'];
     $cpf =$_REQUEST['cpf'];
     $telefone =$_REQUEST['telefone'];
@@ -24,7 +22,7 @@ $tabe="membro";
 
     $userCount	=	$db->numeroLinhas('imagem','idImagem');
     $nomeI="Name";
-
+    //MEU DEUS NUNCA QUERO TRABLHAR COM IMAGEM NA MINHA VIDA POIS QUE COISA CHATA
     if (isset($_FILES['arquivo'])) {
         $imagem = $_FILES["arquivo"];
 
