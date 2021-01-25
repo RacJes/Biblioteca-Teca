@@ -3,12 +3,14 @@
     require("header.php");
 
     session_start();
-    if($_Session['biblioteca']){
+    /*
+    if($_Session['biblioteca'] == true){
         header("location: listar_noticia.php");
      }
      else{
          header("location: login.php");
      }
+     */
 ?>
 
 <div class="wrapper">

@@ -2,12 +2,13 @@
     include("../conectar.php");
 
     session_start();
+    /*
     if($_Session['biblioteca']){
         header("location: listar_noticia.php");
      }
      else{
          header("location: login.php");
-     }
+     }*/
 ?>
 <?php
 
