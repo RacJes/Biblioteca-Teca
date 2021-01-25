@@ -27,7 +27,6 @@ $tabe="membro";
 
     if (isset($_FILES['arquivo'])) {
         $imagem = $_FILES["arquivo"];
-        $tmp_name = $_FILES['file']['tmp_name'];
 
         if($imagem != NULL) {
             $nomeFinal = time().'.jpg';
@@ -38,13 +37,14 @@ $tabe="membro";
                 
                 $dataima	=	array(
                     'nome'=>$nomeI,
-                    'imagem'=>$mysqlImg,
+                    'imagem'=>"'$mysqlImg'",
                 
                 );
     
                 $imaIn =$db->InsertCrud('imagem',$dataima);
                 //mysql_query("INSERT INTO PESSOA (PES_IMG) VALUES ('$mysqlImg')") or
                 $idimagem=$db->UtimoIDinserido();
+                unlink($nomeFinal);
     
             }
         }
@@ -71,7 +71,7 @@ $tabe="membro";
                     'endereco'=>$endereco,
                     'telefone'=>$telefone,
                     'email'=>$email,
-                    'imagem_idImagem'=>1,
+                    'imagem_idImagem'=>$idimagem,
                     'login_idLogin'=>$idlogin,
     );
     
