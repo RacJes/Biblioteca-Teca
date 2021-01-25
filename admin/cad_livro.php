@@ -165,6 +165,7 @@ if(isset($_REQUEST['submit']) and $_REQUEST['submit']!=""){
 
 </div>
 </div><!-- div content-->
+
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
