@@ -1,10 +1,12 @@
 <?php $nm_pagina = "BTeca - Login"; ?>
 <?php
      session_start(); 
-/*
-     if($_Session['biblioteca']== true){
+
+     if( !empty($_SESSION['biblioteca']) ){
         header("location: listar_noticia.php");
-     }*/
+     }
+
+     
 
 //Incluiundo o Banco
 include_once('../conectar.php');
@@ -28,7 +30,7 @@ include_once('../conectar.php');
             foreach($userData as $val){
               $s++;
               }
-              //$_SESSION['biblioteca']=true;
+              $_SESSION['biblioteca']=true;
               header("location: listar_noticia.php");
           }
 
