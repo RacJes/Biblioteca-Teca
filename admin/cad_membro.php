@@ -78,9 +78,7 @@ $tabe="membro";
     $mebroIn =$db->InsertCrud('membro',$dataMem);  
 
 }
-         
-?>
-<?php 
+
     $nm_page ="Cadastrar Membro";
     require("header.php");
 ?>

@@ -1,4 +1,73 @@
-<?php 
+<?php
+    include("../conectar.php");
+?>
+<?php
+
+if(isset($_REQUEST['submit']) and $_REQUEST['submit']!=""){
+    extract($_REQUEST);
+// aqui vai se tudo tiver preenchido
+
+$tabe="livro";
+    $titulo=$_REQUEST['titulo'];
+    $autor =$_REQUEST['autor'];
+    $isbn =$_REQUEST['isbn'];
+    $editor =$_REQUEST['editor'];
+    $sinopse=$_REQUEST['sinopse'];
+    //$imagem = $_REQUEST["arquivo"];
+    //$imagem = $_FILES["arquivo"];
+
+
+    $userCount	=	$db->numeroLinhas('imagem','idImagem');
+    $nomeI="Name";
+
+    if (isset($_FILES['arquivo'])) {
+        $imagem = $_FILES["arquivo"];
+        $tmp_name = $_FILES['file']['tmp_name'];
+
+        if($imagem != NULL) {
+            $nomeFinal = time().'.jpg';
+            if (move_uploaded_file($imagem['tmp_name'], $nomeFinal)) {
+                $tamanhoImg = filesize($nomeFinal);
+                
+                $mysqlImg = addslashes(fread(fopen($nomeFinal, "r"), $tamanhoImg));
+                
+                $dataima	=	array(
+                    'nome'=>$nomeI,
+                    'imagem'=>$mysqlImg,
+                
+                );
+    
+                $imaIn =$db->InsertCrud('imagem',$dataima);
+                //mysql_query("INSERT INTO PESSOA (PES_IMG) VALUES ('$mysqlImg')") or
+                $idimagem=$db->UtimoIDinserido();
+    
+            }
+        }
+        else {
+            echo"Você não realizou o upload de forma satisfatória.";
+        }
+    } 
+    
+ 
+    $loginIn =$db->InsertCrud('login',$datalog);   
+    $idlogin=$db->UtimoIDinserido();
+    
+    
+    $userCount	=	$db->numeroLinhas('livro','idlivro');
+    $dataMem	=	array(
+                    //Banco => pagina
+                    'titulo'=>$titulo,
+                    'autor'=>$autor,
+                    'isbn'=>$isbn,
+                    'editor'=>$editor,
+                    'sinopse'=>$sinopse,
+                    
+    );
+    
+    $mebroIn =$db->InsertCrud('livro',$dataMem);  
+
+}
+
     $nm_page ="Cadastrar Livros";
     require("header.php");
 ?>
@@ -22,7 +91,7 @@
     O titulo e o autor são necessáriamente importantes por, sem eles o livro não será cadastrado.
     </div>
 </div>
-<form class="form-group border-dark border p-2 rounded" action="valida_livro.php" method="POST">
+<form class="form-group border-dark border p-2 rounded" method="POST" enctype="multipart/form-data">
 
 <div id="formulario" class="form-row" style="margin-top:2rem;">
         <div class="form-group col-md-3">
@@ -39,7 +108,7 @@
         </div>
         <div class="form-group col-md-3">    
             <b><label for=editor>ISBN</label></b>
-            <input type="text" class="form-control" name="isbn" placeholder="Editora">
+            <input type="text" class="form-control" name="isbn" placeholder="isbn">
         </div>
 </div>
 <script>
