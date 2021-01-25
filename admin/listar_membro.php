@@ -1,7 +1,8 @@
 <?php 
     $nm_page ="Membros";
     require("header.php");
-
+    
+    session_start();
     if($_Session['biblioteca']){
         header("location: listar_noticia.php");
      }

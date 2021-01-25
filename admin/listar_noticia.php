@@ -2,6 +2,7 @@
     $nm_page ="Listar Noticias";
     require("header.php");
 
+    session_start();
     if($_Session['biblioteca']){
         header("location: listar_noticia.php");
      }
