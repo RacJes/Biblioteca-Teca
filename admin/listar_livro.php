@@ -88,7 +88,8 @@ if(count($imprime3)>0){
             <br/>
             <form  method="POST">
                 <input type="hidden" name="dropTab" value="livro" id="exl"/>
-                <input type="hidden" name="dropID" value="<?php echo"$_SESSION[id]=$val[idlivro];";?>" id="exl"/>
+                
+                <input type="hidden" name="dropID" value="<?php echo"$val[idlivro]";?>" id="exl"/>
                 <input type="submit" name="submit" value="Excluir" id="submit"  class="btn btn-danger"/>
             </form>
         </center>    

@@ -7,55 +7,55 @@
     session_start();
     
     if( !empty($_SESSION['biblioteca']) ){
-        $idlivro=$_SESSION['id'];
+        
     }else{
         header("location: login.php");
     }
+    
+    $idlivro=$_REQUEST['id'];
+    
+    if(isset($_REQUEST['submit']) and $_REQUEST['submit']!=""){
+        extract($_REQUEST);
+                // aqui vai se tudo tiver preenchido
+                    $titulo=$_REQUEST['titulo'];
+                    $autor=$_REQUEST['autor'];
+                    $editora=$_REQUEST['editor'];
+                    $isbn=$_REQUEST['isbn'];
+                    $sinopse=$_REQUEST['sinopse'];
+                    $estoque=$_REQUEST['estoque'];
+    
+    
+                    $dataLiv	=	array(
+                                    'titulo'=>$titulo,
+                                    'autor'=>$autor,
+                                    'editora'=>$editora,
+                                    'isbn'=>$isbn,
+                                    'sinopse'=>$sinopse,
+        
+                    );
+                    $imprime2=$db->UpdateCrud('livro', $dataLiv,array('idlivro'=>$idlivro,));
+                
+    
+                    $dataEst	=	array(
+                                    'quantidade'=>$estoque,
+                                    'livro_idlivro'=>$idlivro,
+        
+                    );
+    
+                    $condition =    ' AND livro_idlivro LIKE "'.$idlivro.'" ';
+                    $idestoque=$db->SelectCRUD('estoque','idEstoque',$condition,'');
+    
+                    $imprime3=$db->UpdateCrud('estoque', $dataEst,array('idEstoque'=>$idestoque,));
+                    if($imprime3>0)
+                    {
+                        $mensagemModal='Sucesso';
+                        $TituloModal='Deu Certo Sucesso';
+                    }
+         }
 
 
 ?>
-<?php
-if(isset($_REQUEST['submit']) and $_REQUEST['submit']!=""){
-    extract($_REQUEST);
-            // aqui vai se tudo tiver preenchido
-                $titulo=$_REQUEST['titulo'];
-                $autor=$_REQUEST['autor'];
-                $editora=$_REQUEST['editor'];
-                $isbn=$_REQUEST['isbn'];
-                $sinopse=$_REQUEST['sinopse'];
-                $estoque=$_REQUEST['estoque'];
 
-
-                $dataLiv	=	array(
-                                'titulo'=>$titulo,
-                                'autor'=>$autor,
-                                'editora'=>$editora,
-                                'isbn'=>$isbn,
-                                'sinopse'=>$sinopse,
-    
-                );
-                $imprime2=$db->UpdateCrud('livro', $dataLiv,array('idlivro'=>$idlivro,));
-            
-
-                $dataEst	=	array(
-                                'quantidade'=>$estoque,
-                                'livro_idlivro'=>$idlivro,
-    
-                );
-
-                $condition =    ' AND livro_idlivro LIKE "'.$idlivro.'" ';
-                $idestoque=$db->SelectCRUD('estoque','idEstoque',$condition,'');
-
-                $imprime3=$db->UpdateCrud('estoque', $dataEst,array('idEstoque'=>$idestoque,));
-                if($imprime3>0)
-                {
-                    $mensagemModal='Sucesso';
-                    $TituloModal='Deu Certo Sucesso';
-                }
-     }
-
-
-?>
 <div class="wrapper">
         <!-- Conteudo da pagina -->
 <div id="content">
@@ -108,6 +108,7 @@ if(isset($_REQUEST['submit']) and $_REQUEST['submit']!=""){
                     <b><label for=editor>Estoque</label></b>
                     <input type="text" class="form-control" name="estoque" placeholder="estoque">
                 </div>
+                <input type="hidden" name="id" value="<?php echo"$idlivro";?>" id="exl"/>
         </div>
 
         <div class="row">
