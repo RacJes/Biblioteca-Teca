@@ -84,15 +84,15 @@ $condition .=    ' AND senha LIKE "'.$senha2.'" ';
 
 //ou
 //$imprime4= $db->SelectAllCrud("$tabe","*","AND idLogin LIKE".$idlogin."");
-$imprime4   =    $db->SelectCRUD('login','*',$condition,'');
+$imprime4   =    $db->SelectCRUD('login','idLogin',$condition,'');
 if(count($imprime4)>0){
     $s	=	'';
     foreach($imprime4 as $val1){
      $s++;
 ?>
     <h1><?php echo"$val1[idLogin]"?></h1>
-    <h1><?php echo"$val1[login]"?></h1>
-    <h1><?php echo"$val1[senha]"?></h1>
+    <!--<h1><?php// echo"$val1[login]"?></h1>-->
+    <!--<h1><?php// echo"$val1[senha]"?></h1>-->
 
 <?php 
     }
