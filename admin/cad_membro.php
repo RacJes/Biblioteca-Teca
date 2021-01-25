@@ -21,7 +21,7 @@ if(isset($_REQUEST['submit']) and $_REQUEST['submit']!=""){
 
 
     $userCount	=	$db->numeroLinhas('imagem','idImagem');
-    $nomeI="Name";
+    $nomeI="NameMembro";
     //MEU DEUS NUNCA QUERO TRABLHAR COM IMAGEM NA MINHA VIDA POIS QUE COISA CHATA
     if (isset($_FILES['arquivo'])) {
         $imagem = $_FILES["arquivo"];

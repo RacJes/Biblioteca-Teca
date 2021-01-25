@@ -12,7 +12,7 @@ if(isset($_REQUEST['submit']) and $_REQUEST['submit']!=""){
     $noticia =$_REQUEST['noticia'];
 
     $userCount	=	$db->numeroLinhas('imagem','idImagem');
-    $nomeI="Name";
+    $nomeI="NameNoticia";
     //MEU DEUS NUNCA QUERO TRABLHAR COM IMAGEM NA MINHA VIDA POIS QUE COISA CHATA
     if (isset($_FILES['arquivo'])) {
         $imagem = $_FILES["arquivo"];
@@ -52,7 +52,7 @@ if(isset($_REQUEST['submit']) and $_REQUEST['submit']!=""){
 
     );
     
-    $mebroIn =$db->InsertCrud('noticias',$datanot);  
+    $NotIn =$db->InsertCrud('noticias',$datanot);  
 
 }      
 ?>
