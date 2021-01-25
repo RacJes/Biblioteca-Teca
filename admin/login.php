@@ -60,7 +60,6 @@ include_once('../conectar.php');
                         </h3>
                     </div>
                     <div class="card-body">
-<<<<<<< Updated upstream
                             <p class="card-text">
                             <div class="form-group row ">
                         <label for="email" class="col-sm-3 col-form-label text-info text-right">Endereço de e-mail</label>
@@ -82,9 +81,7 @@ include_once('../conectar.php');
                     </div>
                     <!--
                         <form class="form" name="formLogin" action="#" method="POST">
-=======
                         <form class="form" name="formLogin" action="cad_livro.php" method="POST">
->>>>>>> Stashed changes
                             <div class="form-group">
                                 <label for="uname1">Usuario</label>
                                 <input type="text" class="form-control form-control-lg rounded-0" name="user" id="uname1" required="">
