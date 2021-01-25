@@ -1,6 +1,13 @@
 <?php 
     $nm_page ="Editar Membro";
     require("header.php");
+
+    if($_Session['biblioteca']){
+        header("location: listar_noticia.php");
+     }
+     else{
+         header("location: login.php");
+     }
 ?>
 
 <div class="wrapper">

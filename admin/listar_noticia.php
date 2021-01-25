@@ -1,6 +1,13 @@
 <?php 
     $nm_page ="Listar Noticias";
     require("header.php");
+
+    if($_Session['biblioteca']){
+        header("location: listar_noticia.php");
+     }
+     else{
+         header("location: login.php");
+     }
 ?>
 
 <div class="wrapper">

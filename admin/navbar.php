@@ -1,3 +1,6 @@
+<?php
+ 
+?>
 <nav class="navbar navbar-expand-md navbar-light bg-light" style="margin-top:10px">
     <div class="d-flex w-50 order-0">
         <a class="navbar-brand mr-1" href="../index.php">BTeca Admin</a>
@@ -48,7 +51,11 @@
      
     </div>
     <span class="navbar-text small text-truncate w-50 text-right order-1 order-md-last">
-        <a href="#">
+        <a href="inedex.php" action='
+        <?php
+         session_unset();
+         session_destroy();
+        ?>'>
                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-power" viewBox="0 0 16 16">
                     <path d="M7.5 1v7h1V1h-1z"/>
                     <path d="M3 8.812a4.999 4.999 0 0 1 2.578-4.375l-.485-.874A6 6 0 1 0 11 3.616l-.501.865A5 5 0 1 1 3 8.812z"/>

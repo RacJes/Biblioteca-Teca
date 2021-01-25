@@ -2,7 +2,8 @@
 <?php
      session_start(); 
 
-     if( !empty($_SESSION['biblioteca']) ){
+     if($_Session['biblioteca']){
+        header("location: listar_noticia.php");
      }
 
 //Incluiundo o Banco
@@ -27,7 +28,7 @@ include_once('../conectar.php');
             foreach($userData as $val){
               $s++;
               }
-              $_SESSION['biblioteca']=$val['login'];
+              $_SESSION['biblioteca']=true;
               header("location: listar_noticia.php");
           }
 
