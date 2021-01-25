@@ -78,20 +78,20 @@ echo"<h1>Select 2</h1>";
 $login2="teste21";
 $senha2="senha21";
 
-$condi="AND login = $login2";
-$condi.="AND senha = senha2";
-$imprime4= $db->SelectAllCrud("$tabe","*",$condi);
+$condition =    ' AND login LIKE "'.$login2.'" ';
+$condition .=    ' AND senha LIKE "'.$senha2.'" ';
+$imprime4   =    $db->SelectCRUD('login','*',$condition,'');
 //ou
 //$imprime4= $db->SelectAllCrud("$tabe","*","AND idLogin LIKE".$idlogin."");
 
 if(count($imprime4)>0){
     $s	=	'';
-    foreach($imprime4 as $val){
+    foreach($imprime4 as $val1){
      $s++;
 ?>
-    <h1><?php echo"$val[idLogin]"?></h1>
-    <h1><?php echo"$val[login]"?></h1>
-    <h1><?php echo"$val[senha]"?></h1>
+    <h1><?php echo"$val1[idLogin]"?></h1>
+    <h1><?php echo"$val1[login]"?></h1>
+    <h1><?php echo"$val1[senha]"?></h1>
 
 <?php 
     }
