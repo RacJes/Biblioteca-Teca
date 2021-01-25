@@ -1,9 +1,9 @@
 <?php
     include("../conectar.php");
 ?>
-asd
+
 <?php
-echo $_POST["id"];
+
 if(isset($_REQUEST['submit']) and $_REQUEST['submit']!=""){
     extract($_REQUEST);
 // aqui vai se tudo tiver preenchido

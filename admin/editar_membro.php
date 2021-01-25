@@ -17,7 +17,10 @@
         $s	=	'';
         foreach($imprime4 as $val){
          $s++;
-    ?>
+   
+   
+   
+   ?>
 
 
 
@@ -33,7 +36,7 @@
         Sem cadastro não é possivel alugar livros.
         </div>
     </div>
-    <form class="form-group border border-dark p-2 rounded" method="post" action="valida_membro.php">
+    <form class="form-group border border-dark p-2 rounded" method="POST" enctype="multipart/form-data">
         <div id="formulario" class="form-row" style="margin-top:2rem;">
                 <div class="form-group col-md-4">
                     <b><label for=nome>*Nome Completo</label></b>
