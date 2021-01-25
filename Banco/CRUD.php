@@ -84,12 +84,12 @@ class BancoBi{
 
     public function SelectCRUD($tableName, $fields='*', $cond='', $orderBy='', $limit='')
     {
-        //SELECT $fields FROM $tableName WHERE 1 ".$cond." ".$orderBy." ".$limit;
-        $stmt = $this->pdo->prepare("SELECT $fields FROM $tableName WHERE 1 ".$cond." ".$orderBy." ".$limit);
-        $stmt->execute();
-        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        return $rows;
-    }
+       //SELECT $fields FROM $tableName WHERE 1 ".$cond." ".$orderBy." ".$limit;
+       $stmt = $this->pdo->prepare("SELECT $fields FROM $tableName WHERE 1 ".$cond." ".$orderBy." ".$limit);
+       $stmt->execute();
+       $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+       return $rows;
+   }
 
     public function SelectAllCrud($tableName, $fields='*')
     {

@@ -8,6 +8,29 @@ include_once('../conectar.php');
 
 <?php
   
+  $condition    =    '';
+  if(isset($_REQUEST['submit']) and $_REQUEST['submit']!=""){
+      extract($_REQUEST);
+ // aqui vai se tudo tiver preenchido
+  
+          $condition .=    ' AND login LIKE "'.$_REQUEST['login'].'" ';
+          $condition .=    ' AND senha LIKE "'.$_REQUEST['senha'].'" ';
+  
+          $userData    =    $db->SelectCRUD('login','*',$condition,'ORDER BY idLogin');
+  
+          if(count($userData)>0){
+            $s    =    '';
+            foreach($userData as $val){
+              $s++;
+              }
+              header("location: listar_noticia.php");
+          }
+
+
+  
+        }
+          
+
 
 ?>
 
@@ -23,29 +46,8 @@ include_once('../conectar.php');
     <link rel="stylesheet" href="../css/style.css">
 </head>
 
-<?php
-
-		if(isset($_REQUEST['msg']) and $_REQUEST['msg']=="login"){
-
-			echo	'<div class="alert alert-danger"><i class="fa fa-exclamation-triangle"></i> Login é obrigatório!</div>';
-
-		}elseif(isset($_REQUEST['msg']) and $_REQUEST['msg']=="senha"){
-
-			echo	'<div class="alert alert-danger"><i class="fa fa-exclamation-triangle"></i> Senha é obrigatório!</div>';
-
-		}elseif(isset($_REQUEST['msg']) and $_REQUEST['msg']=="rna"){
-
-			echo	'<div class="alert alert-danger"><i class="fa fa-exclamation-triangle"></i> Usuário incorreto. <strong>Tente novamente!</strong></div>';
-
-		}elseif(isset($_REQUEST['msg']) and $_REQUEST['msg']=="dsd"){
-
-			echo	'<div class="alert alert-danger"><i class="fa fa-exclamation-triangle"></i> Usuário (privilégio) não encontrado! </div>';
-
-		}
-
-?>
-
 <body style="background: linear-gradient(180deg, rgba(219,216,134,1) 13%, rgba(46,46,46,1) 100%);">
+<form method="POST">
 <div class="container" >
     
         <div class="col-md-12 min-vh-100 d-flex flex-column justify-content-center">
@@ -103,4 +105,4 @@ include_once('../conectar.php');
         </div>
         <!--/col-->
 </div>
-<!--/container--></html>
+<!--/container--></form></html>
