@@ -45,6 +45,19 @@ include_once('../conectar.php');
 
 ?>
 
+<?php $nm_pagina = "BTeca - Login"; ?>
+<!DOCTYPE html>
+<html>
+
+<head>
+        <title><?php echo $nm_pagina; ?></title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
 <body style="background: linear-gradient(180deg, rgba(219,216,134,1) 13%, rgba(46,46,46,1) 100%);">
 <div class="container" >
     
@@ -58,43 +71,22 @@ include_once('../conectar.php');
                         </h3>
                     </div>
                     <div class="card-body">
-                            <p class="card-text">
-                            <div class="form-group row ">
-                        <label for="email" class="col-sm-3 col-form-label text-info text-right">Endereço de e-mail</label>
-                        <div class="col">
-                            <input type="email" class="form-control" id="email" name="login" placeholder="Insira seu e-mail" required>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="password" class="col-sm-3 col-form-label text-info text-right">Senha</label>
-                        <div class="col">
-                        <input type="password" class="form-control" id="password" name="senha" placeholder="Insira sua senha" required>
-                        </div>
-                    </div>
-
-                </p>
-                <div class="row align-items-center">
-                    <div class="col">
-                        <button type="submit" name="submit" value="submit" id="submit" class="btn bg-primary">Login</button>
-                    </div>
-                    <!--
                         <form class="form" name="formLogin" action="#" method="POST">
                             <div class="form-group">
                                 <label for="uname1">Usuario</label>
                                 <input type="text" class="form-control form-control-lg rounded-0" name="user" id="uname1" required="">
-                                <div class="invalid-feedback">por favor colocar login</div>
+                                <div class="invalid-feedback">por favor colocar l ogin</div>
                             </div>
                             <div class="form-group">
                                 <label>Senha</label>
-                                <input type="password" class="form-control form-control-lg rounded-0" name="senha" id="senha">
+                                <input type="password" class="form-control form-control-lg rounded-0" name="senha">
                                 <div class="invalid-feedback">
                                 Coloque sua senha.
                                 </div>
                             </div>
                             
-                            <button type="submit" name="submit" value="submit" id="submit" class="btn btn-success btn-lg btn-block">Login</button>
+                            <button type="submit" class="btn btn-success btn-lg btn-block" id="btnLogin">Login</button>
                         </form> 
-                        -->
                     </div>
                     <!--/card-block-->
                 </div>
