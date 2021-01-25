@@ -8,7 +8,8 @@
 <div id="content">
 <?php 
     include("carrosel.php");
-    require("navbar.php"); ?>
+    require("navbar.php");
+    include("../conectar.php") ?>
     
 <div id="conteudo" class="container justify-content-center " style="block-size: 15px; writing-mode: horizontal-tb;">
 
@@ -16,7 +17,19 @@
         <h2 class="text-center font-weight-bold"><ins>Listar noticias</ins></h2>
     </div>
 
-    <!-- inicio do livro -->    
+    <!-- inicio do livro -->   
+    <?php
+         
+$tabe="noticias";
+
+$imprime3= $db->SelectAllCrud("$tabe","*");
+
+if(count($imprime3)>0){
+    $s	=	'';
+    foreach($imprime3 as $val){
+     $s++;
+     //idNoticias	titulo	data_publicao	autor	texto	imagem_idImagem 	
+?> 
     <div id="livro" class="row  d-flex justify-content-center border border-dark rounded">
         
         <div class="col "> 
@@ -27,10 +40,9 @@
         </div>
 
         <div id="conteudo" class="col col-md-6"  style="margin-top:2%;">
-            <h2>Nome da Noticia</h2>
-            <?php $text="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eum nam tempore, voluptatum aliquam placeat
-             aspernatur fugiat non nihil? Laboriosam asperiores ex voluptatem fugit quaerat error rem amet culpa enim id.";
-            echo mb_strimwidth($text, 0, 145, "...");
+            <h2><?php echo"$val[titulo]"?></h2>
+            <?php 
+            echo mb_strimwidth($val["texto"], 0, 145, "...");
             ?>
         
         </div>
@@ -39,19 +51,20 @@
                 
                 <div class="p-2 ">
                     <b>Autor :</b><br/>
-                    Rafael Jesus
+                    <?php echo"$val[autor]"?>
                 </div>
             
                 
                 <div class="p-2 " >
                     <b>Data: </b><br/>
-                03/01/2020
+                    <?php echo"$val[data_publicao]"?>
                 </div>
             
         </div>
         <div class="d-flex flex-column" style="margin-top:0.5%; margin-bottom:0.5%; margin-right:1%;" >    
         <center>   
-            <form action="#">
+        
+            <form action="">
                 <input type="submit" class="btn btn-success" value="Ver Noticia" />
             </form>
             <br/>
@@ -66,7 +79,10 @@
         </div>       
     </div><!-- fehca div conteudo livro -->
     <br/>
-   
+    <?php 
+    }
+}else{}
+?> 
     <br/>
 </div>
 
