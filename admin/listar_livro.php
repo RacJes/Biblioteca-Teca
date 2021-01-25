@@ -8,7 +8,8 @@
 <div id="content">
 <?php 
     include("carrosel.php");
-    require("navbar.php"); ?>
+    require("navbar.php"); 
+    include("../conectar.php");?>
     
 <div id="conteudo" class="container justify-content-center " style="block-size: 15px; writing-mode: horizontal-tb;">
 
@@ -17,6 +18,19 @@
     </div>
 
     <!-- inicio do livro -->    
+
+    <?php
+         
+$tabe="livro";
+
+$imprime3= $db->SelectAllCrud("$tabe","*");
+
+if(count($imprime3)>0){
+    $s	=	'';
+    foreach($imprime3 as $val){
+     $s++;
+     //idlivro	titulo	autor	editora	isbn	sinopse	imagem_idImagem 	
+?>
     <div id="livro" class="row  d-flex justify-content-center border border-dark rounded">
         
         <div class="col "> 
@@ -27,10 +41,8 @@
         </div>
 
         <div id="conteudo" class="col col-md-6"  style="margin-top:2%;">
-            <h2>Nome do livro</h2>
-            <?php $text="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eum nam tempore, voluptatum aliquam placeat
-             aspernatur fugiat non nihil? Laboriosam asperiores ex voluptatem fugit quaerat error rem amet culpa enim id.";
-            echo mb_strimwidth($text, 0, 145, "...");
+            <h2><?php echo"$val[titulo]"?> </h2>
+            <?php echo mb_strimwidth($val["sinopse"], 0, 145, "...");
             ?>
         
         </div>
@@ -39,23 +51,20 @@
                 
                 <div class="p-2 ">
                     <b>Editora :</b><br/>
-                    Alta Books
+                    <?php echo"$val[editora]"?> 
                 </div>
             
                 
                 <div class="p-2 " >
                     <b>ISBN : </b><br/>
-                978-8501078803
+                    <?php echo"$val[isbn]"?> 
                 </div>
             
         </div>
         <div class="d-flex flex-column" style="margin-top:0.5%; margin-bottom:0.5%; margin-right:1%;" >    
         <center>   
-            <form action="#">
-                <input type="submit" class="btn btn-success" value="Ver Livro" />
-            </form>
-            <br/>
-            <form action="#">
+             <form action="editar_livro.php" method="post">
+                <input type="hidden" name="id" value=" <?php echo"$val[idlivro]";?>"/>
                 <input type="submit" class="btn btn-warning"value="Editar livro" />
             </form>
             <br/>
@@ -63,11 +72,15 @@
                 <input type="submit" class="btn btn-danger" value="Excluir Livro" />
             </form>
         </center>    
-        </div>       
+        </div>  
+       
+                
     </div><!-- fehca div conteudo livro -->
-    <br/>
-   
-    <br/>
+        <br>
+    <?php 
+            }
+        }else{}
+        ?> 
 </div>
 
 

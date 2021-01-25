@@ -55,20 +55,20 @@ if(count($imprime3)>0){
                 </div>
             <div class=" " style=" margin-bottom:auto; margin-top:auto;" >
             <center>
-                <a href="editar_membro.php?edit=<?php echo $val['idmembro']; ?>" name="link" class="border bg-warning p-3 h-5" style="margin:10px;" >Editar Membro</a>
+                
                
-               
+                <form action="editar_membro.php" method="post">
+                <input type="hidden" name="id" value=" <?php echo"$val[idmembro]";?>"/>
+                <input type="submit" class="btn btn-warning" value="Editar" />
+                </form>
+                <br>
+                <form action="editar_membro.php" method="post">
+                <input type="hidden" name="id" value=" <?php echo"$val[idmembro]";?>"/>
+                <input type="submit" class="btn btn-danger" value="Excluir" />
+                </form>
             </center>
             </div>
-            <div class=" " style=" margin-bottom:auto; margin-top:auto;" >
-            <center>
-               
-               
-                <a href="editar_membro.php?edit=<?php echo $val['idmembro']; ?>" class="border bg-danger p-3 h-5" >Excluir Membro</a>
-                    
-              
-            </center>
-            </div>           
+                      
         </div><!-- fecha membro e livro -->                        
         <!-- fecha botao -->
     </div>

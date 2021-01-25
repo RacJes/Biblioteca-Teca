@@ -64,14 +64,14 @@ if(count($imprime3)>0){
         <div class="d-flex flex-column" style="margin-top:0.5%; margin-bottom:0.5%; margin-right:1%;" >    
         <center>   
         
-            <form action="">
-                <input type="submit" class="btn btn-success" value="Ver Noticia" />
-            </form>
+           
             <br/>
-            <form action="#">
+            <form action="editar_noticia.php" method="POST">
+                <input type="hidden" name="id" value=" <?php echo"$val[idNoticias]";?>"/>
                 <input type="submit" class="btn btn-warning"value="Editar Noticia" />
             </form>
             <br/>
+            
             <form action="#">
                 <input type="submit" class="btn btn-danger" value="Excluir Noticia" />
             </form>
