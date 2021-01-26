@@ -62,9 +62,23 @@
                     <b><label for=editor>ISBN</label></b>
                     <input type="text" class="form-control" name="isbn" value="<?php echo"$val[isbn]"?>">
                 </div>
+
+                <?php
+                    $estoque;
+                    $condition = ' AND livro_idlivro = "'.$val['idlivro'].'"';;
+                    $idestoque=$db->SelectCRUD('estoque','*',$condition,'');
+                    if(count($idestoque)>0){
+                        $s	=	'';
+                        foreach($idestoque as $val1){
+                        $s++;
+                        $estoque=$val1['quantidade'];
+                        }
+                    }else{}
+                ?>
+
                 <div class="form-group col-md-3">    
                     <b><label for=editor>Estoque</label></b>
-                    <input type="text" class="form-control" name="estoque" placeholder="estoque">
+                    <input type="text" class="form-control" name="estoque" value="<?php echo"$estoque"?>" placeholder="<?php echo"$estoque"?>">
                 </div>
                 <input type="hidden" name="id" value="<?php echo" $idlivro"?>" id="exl"/>
         </div>

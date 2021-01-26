@@ -1,8 +1,9 @@
 <?php
  //
- //Professor Não sabe que minha ideia de montar o Banco com function esta dando trabalho
+ //Professor,Você não sabe que minha ideia de montar o Banco com function esta dando trabalho
  //Estou pesquisando Muito para saber como montar certo e bom para tudo sem precisar fazer sobrecarga
  //Isso Foi Feito pelo metodo PDO 
+ //ISSO ESTA SENDO UM SOFRIMENNTO
  //
 class BancoBi{
 

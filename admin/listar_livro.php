@@ -66,12 +66,14 @@ if(count($imprime3)>0){
 ?>
     <div id="livro" class="row  d-flex justify-content-center border border-dark rounded">
         
-        <div class="col "> 
-            <div class="row ">
-                <img class="d-block p-2" src="../images/teste.jpg" 
-                style="max-width:300px; max-height:160px;   margin-left: auto;  margin-right: auto;">
-            </div>
-        </div>
+    <div class="col col-lg-4 m-1 ">
+                <?php 
+                    
+                    $caminho="getImagem.php?PicNum=$val[imagem_idImagem]";
+                
+                ?>
+                    <img class="d-block p-2" src="<?php echo"$caminho"?>" style="max-width:250px; max-height:150px; margin-left: auto; margin-right:auto;">
+                </div>
 
         <div id="conteudo" class="col col-md-6"  style="margin-top:2%;">
             <h2><?php echo"$val[titulo]"?> </h2>

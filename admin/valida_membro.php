@@ -4,7 +4,6 @@
 <?php echo htmlspecialchars($_POST['endereco']); ?><br>
 <?php echo htmlspecialchars($_POST['email']); ?><br>
 <?php echo htmlspecialchars($_POST['nascimento']); ?><br>
-<?php echo htmlspecialchars($_POST['files']); ?><br>
 <?php include("../conectar.php");
 
 $tabe="membro";
@@ -13,27 +12,32 @@ $cpf =$_POST['cpf'];
 $telefone =$_POST['telefone'];
 $endereco =$_POST['endereco'];
 $email=$_POST['email'];
-$arquivo =$_POST['files'];
 $nascimento =$_POST['nascimento'];
+$idmemb=$_POST['IdMemb'];
+$idImge=$_POST['idImag'];
+$idLogin=$_POST['idlogi'];
 
 
-
-$userCount	=	$db->numeroLinhas($nome,$cpf,$telefone,$endereco,$email,$nascimento,$arquivo);
 $data	=	array(
-                'idmembro'=>"",
                 'nome'=>$nome,
-                'data_nacimento'=>$nascimemtno,
+                'data_nacimento'=>$nascimento,
                 'cpf'=>$cpf,
                 'endereco'=>$endereco,
                 'telefone'=>$telefone,
                 'email'=>$email,
-                'imagem_idImagem'=>1,
-                'login_idLogin'=>1,
+                'imagem_idImagem'=>$idImge,
+                'login_idLogin'=>$idLogin,
 );
 
 //"INSERT INTO $tableName (".implode(',', array_keys($data)).") VALUES (".implode(',', array_fill(0, count($data), '?')).")"
-$imprime1 =$db->InsertCrud($tabe,$data);    
-echo"<h1>$imprime1</h1>";
-$idlogin=$db->UtimoIDinserido();
+$imprime3=$db->UpdateCrud($tabe, $data,array('idmembro'=>$idmemb,));   
+
+if($imprime3>0)
+{
+    $mensagemModal='Sucesso';
+    $TituloModal='Deu Certo Sucesso';
+    header("Location: listar_membro.php");
+}
+
 ?>
 
