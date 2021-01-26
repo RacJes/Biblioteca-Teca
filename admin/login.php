@@ -31,7 +31,7 @@ include_once('../conectar.php');
               $s++;
               }
               $_SESSION['biblioteca']=true;
-              header("location: listar_noticia.php");
+              header("location: valida.php");
           }
 
 
