@@ -55,8 +55,16 @@ if(count($imprime3)>0){
         <div id="membro" class="row p-2 m-1">
             <div class="row m-1">
                 <div class="col col-lg-4 m-1 ">
-                    <img class="d-block p-2" src="$imprime4 image/gif" 
-                    style="max-width:250px; max-height:150px;   margin-left: auto;  margin-right: auto;">
+                <?php 
+                    /*
+                    echo'<form action="editar_membro.php" method="post">';
+                    echo '</form>';
+                    */
+
+                    $caminho="getImagem.php?PicNum=$val[imagem_idImagem]";
+                
+                ?>
+                    <img class="d-block p-2" src="<?php echo"$caminho"?>" style="max-width:250px; max-height:150px; margin-left: auto; margin-right:auto;">
                 </div>
                 <div class="col">
                     <h3> <?php echo"$val[nome]"?> </h3>
