@@ -146,7 +146,7 @@ if(isset($_REQUEST['submit']) and $_REQUEST['submit']!=""){
             </div>    
             <div class="form-group col-md-4">    
                 <b><label for=autor>Senha</label></b>
-                <input type="text" class="form-control" name="senha" >
+                <input type="password" class="form-control" name="senha" >
             </div>
     </div>
     <div id="formulario" class="form-row" style="margin-top:2rem;">
