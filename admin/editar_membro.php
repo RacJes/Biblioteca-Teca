@@ -45,7 +45,7 @@
         Sem cadastro não é possivel alugar livros.
         </div>
     </div>
-    <form class="form-group border border-dark p-2 rounded" method="POST" enctype="multipart/form-data">
+    <form class="form-group border border-dark p-2 rounded" method="POST" action="valida_membro.php">
         <div id="formulario" class="form-row" style="margin-top:2rem;">
                 <div class="form-group col-md-4">
                     <b><label for=nome>*Nome Completo</label></b>
@@ -73,51 +73,12 @@
                 <b><label for=editor>Nascimento</label></b>
                 <input type="date" class="form-control" name="nascimento"  value="<?php echo"$val[data_nacimento]";?>">
             </div>
+            <input type="hidden" name="IdMemb" value="<?php echo"$val[idmembro]"?>"/>
+            <input type="hidden" name="idImag" value="<?php echo"$val[imagem_idImagem]"?>"/>
+            <input type="hidden" name="idlogi" value="<?php echo"$val[login_idLogin]"?>"/>
     </div>
-    <script>
 
-        window.onload = function() {
-        //Check File API support
-        if (window.File && window.FileList && window.FileReader) {
-            var filesInput = document.getElementById("files");
-            filesInput.addEventListener("change", function(event) {
-            var files = event.target.files; //FileList object
-            var output = document.getElementById("result");
-            for (var i = 0; i < files.length; i++) {
-                var file = files[i];
-                //Only pics
-                if (!file.type.match('image'))
-                continue;
-                var picReader = new FileReader();
-                picReader.addEventListener("load", function(event) {
-                var picFile = event.target;
-                var div = document.createElement("div");
-                div.innerHTML = "<img class='thumbnail' src='" + picFile.result + "'" +
-                    "title='" + picFile.name + "'/>";
-                output.insertBefore(div, null);
-                });
-                //Read the image
-                picReader.readAsDataURL(file);
-            }
-            });
-        } else {
-            console.log("Your browser does not support File API");
-        }
-        }
-
-    </script>
     <div class="row">
-        <div class="form-group col-md-6">
-            <div class="table-overflow">
-                <table class="table">
-                    <output id='result'>     
-                </table>
-            </div>    
-        
-            <label for='files'>Enviar as fotos </label>
-            <input name='files' type='file' >
-        </div> 
-        <!-- https://stackoverflow.com/questions/20779983/multiple-image-upload-and-preview --> 
     </div>
         <div class="row justify-content-center w-100" style="margin-left:0.1%;" >    
             <div class="col ">

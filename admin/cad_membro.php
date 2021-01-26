@@ -53,7 +53,31 @@ if(isset($_REQUEST['submit']) and $_REQUEST['submit']!=""){
                 //mysql_query("INSERT INTO PESSOA (PES_IMG) VALUES ('$mysqlImg')") or
                 $idimagem=$db->UtimoIDinserido();
                 unlink($nomeFinal);
-    
+                
+                 
+                $userCount	=	$db->numeroLinhas('login','idLogin');
+                $datalog	=	array(
+                    'login'=>$login,
+                    'senha'=>$senha,
+                );
+                $loginIn =$db->InsertCrud('login',$datalog);   
+                $idlogin=$db->UtimoIDinserido();
+                
+                
+                $userCount	=	$db->numeroLinhas('membro','idmembro');
+                $dataMem	=	array(
+                                'nome'=>$nome,
+                                'data_nacimento'=>$nascimento,
+                                'cpf'=>$cpf,
+                                'endereco'=>$endereco,
+                                'telefone'=>$telefone,
+                                'email'=>$email,
+                                'imagem_idImagem'=>$idimagem,
+                                'login_idLogin'=>$idlogin,
+                );
+                
+                $mebroIn =$db->InsertCrud('membro',$dataMem);  
+
             }
         }
         else {
@@ -61,32 +85,7 @@ if(isset($_REQUEST['submit']) and $_REQUEST['submit']!=""){
         }
     } 
     
-    
-    $userCount	=	$db->numeroLinhas('login','idLogin');
-    $datalog	=	array(
-        'login'=>$login,
-        'senha'=>$senha,
-    );
-    $loginIn =$db->InsertCrud('login',$datalog);   
-    $idlogin=$db->UtimoIDinserido();
-    
-    
-    $userCount	=	$db->numeroLinhas('membro','idmembro');
-    $dataMem	=	array(
-                    'nome'=>$nome,
-                    'data_nacimento'=>$nascimento,
-                    'cpf'=>$cpf,
-                    'endereco'=>$endereco,
-                    'telefone'=>$telefone,
-                    'email'=>$email,
-                    'imagem_idImagem'=>$idimagem,
-                    'login_idLogin'=>$idlogin,
-    );
-    
-    $mebroIn =$db->InsertCrud('membro',$dataMem);  
-
 }
-
     $nm_page ="Cadastrar Membro";
     require("header.php");
 ?>
