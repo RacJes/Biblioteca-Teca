@@ -56,11 +56,7 @@ if(count($imprime3)>0){
             <div class="row m-1">
                 <div class="col col-lg-4 m-1 ">
                 <?php 
-                    /*
-                    echo'<form action="editar_membro.php" method="post">';
-                    echo '</form>';
-                    */
-
+                    
                     $caminho="getImagem.php?PicNum=$val[imagem_idImagem]";
                 
                 ?>

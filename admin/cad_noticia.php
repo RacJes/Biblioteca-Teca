@@ -43,7 +43,19 @@ if(isset($_REQUEST['submit']) and $_REQUEST['submit']!=""){
                 //mysql_query("INSERT INTO PESSOA (PES_IMG) VALUES ('$mysqlImg')") or
                 $idimagem=$db->UtimoIDinserido();
                 unlink($nomeFinal);
-    
+                
+                $userCount	=	$db->numeroLinhas('noticias','idNoticias');
+                $datanot	=	array(
+                                'titulo'=>$titulo,
+                                'data_publicao'=>$date,
+                                'autor'=>$autor,
+                                'texto'=>$noticia,
+                                'imagem_idImagem'=>$idimagem,
+
+                );
+                
+                $NotIn =$db->InsertCrud('noticias',$datanot);
+
             }
         }
         else {
@@ -51,17 +63,7 @@ if(isset($_REQUEST['submit']) and $_REQUEST['submit']!=""){
         }
     }  
     
-    $userCount	=	$db->numeroLinhas('noticias','idNoticias');
-    $datanot	=	array(
-                    'titulo'=>$titulo,
-                    'data_publicao'=>$date,
-                    'autor'=>$autor,
-                    'texto'=>$noticia,
-                    'imagem_idImagem'=>$idimagem,
-
-    );
-    
-    $NotIn =$db->InsertCrud('noticias',$datanot);  
+      
 
 }      
 ?>

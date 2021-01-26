@@ -73,8 +73,12 @@ if(isset($_REQUEST['submit']) and $_REQUEST['submit']!=""){
                 $EstIn =$db->InsertCrud('estoque',$dataEst);
                 if($EstIn>0)
                 {
+
                     $mensagemModal='Sucesso';
                     $TituloModal='Deu Certo Sucesso';
+                    echo'<script type="text/javascript">';
+                    echo"$('#exampleModal').modal('show')";
+                    echo'</script>';
                 }
 
  
@@ -155,11 +159,10 @@ if(isset($_REQUEST['submit']) and $_REQUEST['submit']!=""){
         <b><label for="corpoNoticia">Sinopse</label></b>
         <textarea class="form-control" name="sinopse" id="corpoNoticia" rows="7"></textarea>
     </div>      
-    <!-- https://stackoverflow.com/questions/20779983/multiple-image-upload-and-preview --> 
 </div>
 <div class="row w-100 " style="margin:auto;">
 <!--<button type="sumit" name="submit" value="submit" id="submit" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Enviar</button>-->
-<button type="button submit" name="submit" value="submit" id="submit" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#exampleModal">Enviar</button>
+<button type="submit" name="submit" value="submit" id="enviar" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#exampleModal">Enviar</button>
 </div>
 </form>
 
@@ -185,4 +188,6 @@ if(isset($_REQUEST['submit']) and $_REQUEST['submit']!=""){
     </div>
   </div>
 </div>
+
+
 </div><!-- div wrapper-->
