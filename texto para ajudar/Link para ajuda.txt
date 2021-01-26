@@ -10,3 +10,4 @@ https://www.php.net/manual/pt_BR/pdostatement.fetchall.php
 https://www.php.net/manual/pt_BR/pdo.lastinsertid.php
 
 https://www.devmedia.com.br/upload-de-imagens-em-php-e-mysql/10041
+https://rafaelcouto.com.br/salvar-imagem-no-banco-de-dados-com-php-mysql/
