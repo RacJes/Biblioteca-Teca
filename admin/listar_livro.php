@@ -27,22 +27,37 @@
     </div>
 
     <!-- inicio do livro -->    
-
     <?php
          
 $tabe="livro";
-
 if($_SERVER["REQUEST_METHOD"]=="POST")
 {
-    $table=$_REQUEST['dropTab'];
+    $idtable=$_REQUEST['dropID'];
+
+    $condition = ' AND livro_idlivro = "'.$idtable.'"';;
+    $idestoque=$db->SelectCRUD('estoque','idEstoque',$condition,'');
+    $idEstoques;
+    if(count($idestoque)>0){
+    $s	=	'';
+        foreach($idestoque as $val1){
+        $s++;
+        $idEstoques=$val1['idEstoque'];
+
+        $imprime3=$db->DeleteCrud('estoque',array('idEstoque'=>$idEstoques,));
+           
+        }
+    }else{}
+
     $id=array(
-        'idlivro'=>$_REQUEST['dropID'],
+        'idlivro'=>$idtable,
     );
-    $drop=$db->DeleteCrud($table,$id);
+    $drop=$db->DeleteCrud($tabe,$id);
 }
 
-$imprime3= $db->SelectAllCrud("$tabe","*");
-
+?>
+<?php
+$imprime3= $db->SelectAllCrud("livro","*");
+$cont=0;
 if(count($imprime3)>0){
     $s	=	'';
     foreach($imprime3 as $val){
@@ -78,19 +93,21 @@ if(count($imprime3)>0){
                     <?php echo"$val[isbn]"?> 
                 </div>
             
+            
         </div>
         <div class="d-flex flex-column" style="margin-top:0.5%; margin-bottom:0.5%; margin-right:1%;" >    
         <center>   
              <form action="editar_livro.php" method="post">
-                <input type="hidden" name="id" value=" <?php echo"$val[idlivro]";?>"/>
+                <input type="hidden" name="id" value="<?php echo"$val[idlivro]";?>"/>
                 <input type="submit" class="btn btn-warning"value="Editar livro" />
             </form>
             <br/>
+
+       
             <form  method="POST">
-                <input type="hidden" name="dropTab" value="livro" id="exl"/>
-                
-                <input type="hidden" name="dropID" value="<?php echo $val['idlivro'] ;?>" id="exl"/>
-                <input type="submit" name="submit" value="Excluir" id="submit"  class="btn btn-danger"/>
+                        <input type="hidden" name="dropID" value="<?php echo"$val[idlivro]"?> "/>
+                        <input type="submit" name="submit" 
+                        id="excluir" value="Excluir Livro" class="btn btn-danger"/>
             </form>
         </center>    
         </div>  
@@ -103,6 +120,7 @@ if(count($imprime3)>0){
         }else{}
         ?> 
 </div>
+
 
 
 
